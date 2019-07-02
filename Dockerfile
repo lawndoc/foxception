@@ -17,7 +17,12 @@ ENV EDGE="0"
 # Default resolution, change if you like
 ENV WIDTH=1280
 ENV HEIGHT=720
-ENV PIA_EXT_PATH=/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/{3e4d2037-d300-4e95-859d-3cba866f46d3}.xpi
+
+# Set path to Firefox side-loading directory
+ENV SIDE_LOAD_DIR=/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/
+
+# Rename xpi archive to match application id of extension
+ENV PIA_APP_ID={3e4d2037-d300-4e95-859d-3cba866f46d3}.xpi
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
@@ -26,14 +31,15 @@ CMD ["/sbin/my_init"]
 ##    REPOSITORIES AND DEPENDENCIES    ##
 #########################################
 RUN echo 'deb http://archive.ubuntu.com/ubuntu trusty main universe restricted' > /etc/apt/sources.list && \
-    echo 'deb http://archive.ubuntu.com/ubuntu trusty-updates main universe restricted' >> /etc/apt/sources.list && \
+    echo 'deb http://archive.ubuntu.com/ubuntu trusty-updates main universe restricted' >> /etc/apt/sources.list
 
 # Install packages needed for app
-
-    export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive && \
+RUN export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
-    apt-get install -y firefox && \
-    curl -sSL https://addons.mozilla.org/firefox/downloads/file/2984948/private_internet_access-2.1.2-fx.xpi?src=dp-btn-primary -o $PIA_EXT_PATH
+    apt-get install -y firefox
+
+# Download add-ons for Firefox and place them in the side-loading directory with the correct naming scheme
+RUN curl -sSL https://addons.mozilla.org/firefox/downloads/file/2984948/private_internet_access-2.1.2-fx.xpi?src=dp-btn-primary -o $SIDE_LOAD_DIR$PIA_APP_ID
 
 #########################################
 ##          GUI APP INSTALL            ##
