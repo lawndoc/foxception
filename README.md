@@ -8,9 +8,9 @@ This project was inspired by [this blog post](http://ivo2u.nl/Yo). I've extended
 
 ## Installation / running the image
 
-This image (which includes Firefox and the PIA vpn extension) is published on DockerHub. You can run it with the command:
+This image includes Firefox and the following extensions: PIA vpn, uBlock Origin, and Decentraleyes. It is published on DockerHub, and you can run it with the command:
 
-`$ docker run -d --rm --ipc=host --privileged --name foxception lawndoc/foxception:PIA`
+`$ docker run -d --rm --ipc=host --privileged --name foxception lawndoc/foxception:Privacy`
 
 It is important to include all of the flags in order for this docker container to run and close properly. I recommend you read up on all of the flags being used and what they mean (see IMPORTANT NOTE below).
 
