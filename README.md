@@ -6,6 +6,14 @@ This docker container runs a web server that opens up a Firefox instance in your
 
 This project was inspired by [this blog post](http://ivo2u.nl/Yo). I've extended IvoNet's already awesome creation by switching the browser to Firefox and figuring out how to sideload extensions so that they are already baked into the browser when you build the image.
 
+## Installation / running the image
+
+This image (which includes Firefox and the PIA vpn extension) is published on DockerHub. You can run it with the command:
+
+`$ docker run -d --rm --ipc=host --privileged --name foxception lawndoc/foxception:PIA`
+
+It is important to include all of the flags in order for this docker container to run and close properly. I recommend you read up on all of the flags being used and what they mean (see IMPORTANT NOTE below).
+
 ## Choosing extensions
 
 To pick your own default extensions, you need to add the xpi archive to the directory /usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/
