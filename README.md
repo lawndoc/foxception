@@ -4,6 +4,8 @@
 
 This docker container runs a web server that opens up a Firefox instance in your browser when you navigate to it. It runs xRDP over Apache Guacamole that is locked into a Firefox window.
 
+![](foxception.png)
+
 This project was inspired by [this blog post](http://ivo2u.nl/Yo). I've extended IvoNet's already awesome creation by switching the browser to Firefox and figuring out how to sideload extensions so that they are already baked into the browser when you build the image.
 
 ## Installation / running the image
