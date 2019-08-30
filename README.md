@@ -16,7 +16,7 @@ This image includes Firefox and the following extensions: PIA vpn, uBlock Origin
 
 It is important to include all of the flags in order for this docker container to run and close properly. I recommend you read up on all of the flags being used and what they mean (see IMPORTANT NOTE below).
 
-## Choosing extensions
+## Choosing your own extensions
 
 To pick your own default extensions, you need to add the xpi archive to the directory /usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/
 
