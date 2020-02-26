@@ -23,8 +23,8 @@ ENV SIDE_LOAD_DIR=/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e
 
 # Rename xpi archive to match application id of extension
 ENV PIA_APP_ID={3e4d2037-d300-4e95-859d-3cba866f46d3}.xpi
-ENV UBLOCK_APP_ID=uBlock0@raymondhill.net.xpi
-ENV DCTRL_APP_ID=jid1-BoFifL9Vbdl2zQ@jetpack.xpi
+#ENV UBLOCK_APP_ID=uBlock0@raymondhill.net.xpi
+#ENV DCTRL_APP_ID=jid1-BoFifL9Vbdl2zQ@jetpack.xpi
 #ENV PB_APP_ID=
 
 # Use baseimage-docker's init system
