@@ -10,7 +10,7 @@ This project was inspired by [this blog post](http://ivo2u.nl/Yo). I've extended
 
 ## Installation / running the image
 
-This image includes Firefox and the following extensions: PIA vpn. It the Dockerfile also has commented out lines for uBlock Origin, Decentraleyes, and Privacy Badger. They have been commented out to help with stability, but you can easily uncomment them to suit your needs. This image is published on DockerHub, and you can run it with the command:
+This image includes Firefox and the following extensions: PIA vpn. The Dockerfile also has commented out lines for uBlock Origin, Decentraleyes, and Privacy Badger. They have been commented out to help with stability, but you can easily uncomment them to suit your needs. This image is published on DockerHub, and you can run it with the command:
 
 `$ docker run -d --rm --ipc=host --privileged --name foxception lawndoc/foxception:Privacy`
 
