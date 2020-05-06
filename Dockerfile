@@ -11,8 +11,8 @@ MAINTAINER LawnDoc <mail@cjmay.biz>
 # User/Group Id gui app will be executed as default are 99 and 100
 ENV USER_ID=99
 ENV GROUP_ID=100
-
-ENV EDGE="0"
+ENV APPNAME="Firefox"
+#ENV EDGE="0"
 
 # Default resolution, change if you like
 ENV WIDTH=1280
@@ -27,8 +27,11 @@ ENV PIA_APP_ID={3e4d2037-d300-4e95-859d-3cba866f46d3}.xpi
 #ENV DCTRL_APP_ID=jid1-BoFifL9Vbdl2zQ@jetpack.xpi
 #ENV PB_APP_ID=
 
+ENV HOME /nobody
+ENV START_URL="https://duckduckgo.com/"
+
 # Use baseimage-docker's init system
-CMD ["/sbin/my_init"]
+#CMD ["/sbin/my_init"]
 
 #########################################
 ##    REPOSITORIES AND DEPENDENCIES    ##
@@ -52,18 +55,18 @@ RUN curl -sSL https://addons.mozilla.org/firefox/downloads/file/3502793/private_
 WORKDIR /nobody
 RUN mkdir -p /etc/my_init.d && \
     echo 'admin ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
 ADD firstrun.sh /etc/my_init.d/firstrun.sh
 RUN chmod +x /etc/my_init.d/firstrun.sh
 
 # Copy X app start script to right location
 COPY startapp.sh /startapp.sh
+RUN chmod +x /startapp.sh
+COPY root /
 
 
 #########################################
 ##         EXPORTS AND VOLUMES         ##
 #########################################
-ENV APP_NAME="Firefox"
-ENV HOME /nobody
-ENV START_URL="https://duckduckgo.com/"
 VOLUME ["/config"]
 EXPOSE 3389 8080
