@@ -33,8 +33,8 @@ CMD ["/sbin/my_init"]
 #########################################
 ##    REPOSITORIES AND DEPENDENCIES    ##
 #########################################
-RUN echo 'deb http://archive.ubuntu.com/ubuntu trusty main universe restricted' > /etc/apt/sources.list && \
-    echo 'deb http://archive.ubuntu.com/ubuntu trusty-updates main universe restricted' >> /etc/apt/sources.list
+RUN echo 'deb http://archive.ubuntu.com/ubuntu focal main universe restricted' > /etc/apt/sources.list && \
+    echo 'deb http://archive.ubuntu.com/ubuntu focal-updates main universe restricted' >> /etc/apt/sources.list
 
 # Install packages needed for app
 RUN export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive && \
