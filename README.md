@@ -6,7 +6,7 @@ This docker container runs a web server that opens up a Firefox instance in your
 
 ![](foxception.png)
 
-This project was inspired by [this blog post](http://ivo2u.nl/Yo). I've extended IvoNet's already awesome creation by switching the browser to Firefox and figuring out how to sideload extensions so that they are already baked into the browser when you build the image.
+This project was inspired by [this blog post](http://ivo2u.nl/Yo). IvoNet's creation is really cool, but I thought I would build my own and add some improvements. First, I updated the apache guacamole image to a more current one. Then I switched the browser to Firefox and figured out how to sideload extensions so that they are already baked into the browser when you build the image.
 
 ## Installation / running the image
 

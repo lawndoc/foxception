@@ -1,4 +1,4 @@
-FROM hurricane/dockergui:x11rdp1.3
+FROM lsiobase/guacgui
 
 MAINTAINER LawnDoc <mail@cjmay.biz>
 
@@ -33,8 +33,6 @@ CMD ["/sbin/my_init"]
 #########################################
 ##    REPOSITORIES AND DEPENDENCIES    ##
 #########################################
-RUN echo 'deb http://archive.ubuntu.com/ubuntu focal main universe restricted' > /etc/apt/sources.list && \
-    echo 'deb http://archive.ubuntu.com/ubuntu focal-updates main universe restricted' >> /etc/apt/sources.list
 
 # Install packages needed for app
 RUN export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive && \
