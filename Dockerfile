@@ -6,8 +6,6 @@ MAINTAINER LawnDoc <mail@cjmay.biz>
 ##        ENVIRONMENTAL CONFIG         ##
 #########################################
 
-# Set environment variables
-
 # User/Group Id gui app will be executed as default are 99 and 100
 ENV USER_ID=99
 ENV GROUP_ID=100
@@ -30,9 +28,6 @@ ENV PIA_APP_ID={3e4d2037-d300-4e95-859d-3cba866f46d3}.xpi
 ENV HOME /nobody
 ENV START_URL="https://duckduckgo.com/"
 
-# Use baseimage-docker's init system
-#CMD ["/sbin/my_init"]
-
 #########################################
 ##    REPOSITORIES AND DEPENDENCIES    ##
 #########################################
@@ -49,15 +44,19 @@ RUN curl -sSL https://addons.mozilla.org/firefox/downloads/file/3502793/private_
 #    curl -sSL https://addons.mozilla.org/firefox/downloads/file/1667956/privacy_badger-2019.1.30-an+fx.xpi?src=dp-btn-primary -o $SIDE_LOAD_DIR$PB_APP_ID
 
 #########################################
-##          GUI APP INSTALL            ##
+##           GUI APP SETUP             ##
 #########################################
 
+# Set security
 WORKDIR /nobody
 RUN mkdir -p /etc/my_init.d && \
     echo 'admin ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-ADD firstrun.sh /etc/my_init.d/firstrun.sh
-RUN chmod +x /etc/my_init.d/firstrun.sh
+# Set start page
+RUN echo "pref(\"browser.startup.homepage\", \"$START_URL\");" > /etc/firefox/syspref.js
+
+#ADD firstrun.sh /etc/my_init.d/firstrun.sh
+#RUN chmod +x /etc/my_init.d/firstrun.sh
 
 # Copy X app start script to right location
 COPY startapp.sh /startapp.sh
