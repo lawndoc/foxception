@@ -1,4 +1,4 @@
-FROM lsiobase/guacgui
+FROM lsiobase/guacgui:amd64-latest
 
 MAINTAINER LawnDoc <doctormay6@gmail.com>
 
@@ -10,11 +10,10 @@ MAINTAINER LawnDoc <doctormay6@gmail.com>
 ENV USER_ID=99
 ENV GROUP_ID=100
 ENV APPNAME="Firefox"
-#ENV EDGE="0"
 
 # Default resolution, change if you like
-ENV WIDTH=1280
-ENV HEIGHT=720
+ENV WIDTH=1920
+ENV HEIGHT=1080
 
 # Set path to Firefox side-loading directory
 ENV SIDE_LOAD_DIR=/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/
@@ -54,9 +53,6 @@ RUN mkdir -p /etc/my_init.d && \
 
 # Set start page
 RUN echo "pref(\"browser.startup.homepage\", \"$START_URL\");" > /etc/firefox/syspref.js
-
-#ADD firstrun.sh /etc/my_init.d/firstrun.sh
-#RUN chmod +x /etc/my_init.d/firstrun.sh
 
 # Copy X app start script to right location
 COPY startapp.sh /startapp.sh
