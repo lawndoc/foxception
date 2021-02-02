@@ -2,7 +2,7 @@
 
 ## Browser in a browser
 
-This container runs a web server that opens up a Firefox instance in your browser when you navigate to it. It runs xRDP over Apache Guacamole that is locked into a Firefox window.
+This container runs a web server that serves an actual Firefox browser when you navigate to it. Under the hood, the container is running xRDP over Apache Guacamole to serve up the Firefox window.
 
 ![](foxception.png)
 
