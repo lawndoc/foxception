@@ -16,7 +16,7 @@ This build includes Firefox and the PIA vpn extension. The Dockerfile also has c
 
 This image is published on Docker Hub, and you can run it with the command:
 
-`$ docker run -d --rm --shm-size=1G -p 8080:8080 --name foxception lawndoc/foxception:Privacy`
+`$ docker run -d --rm --shm-size=1G -p 8080:8080 --name foxception lawndoc/foxception:latest`
 
 It is important to include all of the flags in order for this docker container to run and close properly. I recommend you read up on all of the flags being used and what they mean (see IMPORTANT NOTE below).
 
