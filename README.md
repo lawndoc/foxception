@@ -30,7 +30,7 @@ You can run this image with a seccomp filter to minmize the permitted syscalls o
 
 `$ ./build.sh`
 
-`$ sudo docker run -d --shm-size=1G -p 8080:8080 --security-opt seccomp=foxception_seccomp.json --name foxception lawndoc/foxception:Privacy`
+`$ sudo docker run -d --shm-size=1G -p 8080:8080 --security-opt seccomp=foxception_seccomp.json --name foxception lawndoc/foxception:latest`
 
 The seccomp filter was made with [this tool](https://github.com/doctormay6/oci-seccomp-bpf-hook) which logs all syscalls made to the kernel and then generates a seccomp filter when you stop the container. The provided filter allows only the syscalls required for this container to function as it was intended. I highly recommend using the seccomp filter because I haven't done any kind of vulnerability analysis on this service (see IMPORTANT NOTE below).
 
