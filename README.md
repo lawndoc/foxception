@@ -22,7 +22,7 @@ It is important to include all of the flags in order for this docker container t
 
 #### Running with Seccomp
 
-You can run this image with a seccomp filter to minmize the permitted syscalls of the container in the event of successful exploitation. To do this, you clone this repo, build an image with the provided script, and run with the provided seccomp filter:
+You can run this image with a seccomp filter to minimize the permitted syscalls of the container in the event of successful exploitation. To do this, you clone this repo, build an image with the provided script, and run with the provided seccomp filter:
 
 `$ git clone https://github.com/doctormay6/foxception.git`
 
