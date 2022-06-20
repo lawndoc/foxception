@@ -24,7 +24,7 @@ It is important to include all of the flags in order for this docker container t
 
 You can run this image with a seccomp filter to minimize the permitted syscalls of the container in the event of successful exploitation. To do this, you clone this repo, build an image with the provided script, and run with the provided seccomp filter:
 
-`$ git clone https://github.com/doctormay6/foxception.git`
+`$ git clone https://github.com/lawndoc/foxception.git`
 
 `$ cd foxception`
 
@@ -32,7 +32,7 @@ You can run this image with a seccomp filter to minimize the permitted syscalls 
 
 `$ sudo docker run -d --shm-size=1G -p 8080:8080 --security-opt seccomp=foxception_seccomp.json --name foxception lawndoc/foxception:latest`
 
-The seccomp filter was made with [this tool](https://github.com/doctormay6/oci-seccomp-bpf-hook) which logs all syscalls made to the kernel and then generates a seccomp filter when you stop the container. The provided filter allows only the syscalls required for this container to function as it was intended. I highly recommend using the seccomp filter because I haven't done any kind of vulnerability analysis on this service (see IMPORTANT NOTE below).
+The seccomp filter was made with [this tool](https://github.com/lawndoc/oci-seccomp-bpf-hook) which logs all syscalls made to the kernel and then generates a seccomp filter when you stop the container. The provided filter allows only the syscalls required for this container to function as it was intended. I highly recommend using the seccomp filter because I haven't done any kind of vulnerability analysis on this service (see IMPORTANT NOTE below).
 
 Also, keep in mind that if you modify the container too much it may require additional syscalls that are not whitelisted by the provided seccomp filter. In that scenario, you can use the tool mentioned above to generate a new filter.
 
